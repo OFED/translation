@@ -24,5 +24,3 @@ https://levelup.gitconnected.com/understanding-react-render-props-by-example-71f
 https://auth0.com/blog/react-router-4-practical-tutorial/
 
 https://rollbar.com/blog/top-10-javascript-errors/
-
-https://dassur.ma/things/deep-copy/
