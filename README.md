@@ -1,7 +1,23 @@
 # translation
 前端技术文章翻译小组
 
+## 翻译规范
+
+1. 创建新文章目录
+1. 创建新 markdown 文件(```all.md``` 为整篇文章)
+1. 多人协作时创建自己翻译段落的 markdown 文件，最后合入最终文件中
+
+## 校对人员
+
+jinlong
+
 ## 精选文章
+
+- 翻译中
+
+https://andy-carter.com/blog/variable-scope-in-modern-javascript
+
+- 待翻译
 
 https://blog.risingstack.com/d3-js-tutorial-bar-charts-with-javascript/
 
