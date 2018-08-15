@@ -1,19 +1,19 @@
-现代 JavaScript 的变量作用域
+# 现代 JavaScript 的变量作用域
 
 ## 局部作用域
 
-现在我们回到***局部作用域***
+现在我们回到*局部作用域*
 
 ```js
 var a = 'Daffy Duck'; // a 是全局变量
 function delta(b) {
-    // b 是传入 delta 的局部变量
-    console.log(b);
+	// b 是传入 delta 的局部变量
+	console.log(b);
 }
 function epsilon() {
-    // c 被定义成局部作用域变量
-    var c = 'Bugs Bunny';
-    console.log(c);
+	// c 被定义成局部作用域变量
+	var c = 'Bugs Bunny';
+	console.log(c);
 }
 delta(a); // 输出 'Daffy Duck'
 epsilon(); // 输出 'Bugs Bunny'
