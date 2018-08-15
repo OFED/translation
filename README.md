@@ -1,7 +1,7 @@
 # translation
 前端技术文章翻译小组
 
-## 翻译流程及规范
+## 翻译流程
 
 1. 点击 Fork 创建自己分支，push 到自己的分支，最后发起 Pull request
 1. 我会 merge 到主仓库
@@ -33,7 +33,8 @@
 
 ## 校对人员
 
-jinlong
+- jinlong
+- jinrui
 
 ## 精选文章
 
