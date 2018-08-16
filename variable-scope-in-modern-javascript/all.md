@@ -122,9 +122,108 @@ zeta();
 
 ## 块级作用域
 
+几年前随着 ES6 的到来，出现了两个用于声明变量的新关键词: `let` 和 `const`。这两个关键字都允许我们将作用域扩大到代码块，即介于两个大括号{ }之间的内容。
 
+### let
 
+许多人认为 `let` 是对现有 `var` 的替代。然而，这并不完全正确，因为它们声明变量的作用域不同。`let` 声明的是块级作用域的变量，然而`var` 语句允许我们创建局部作用域的变量。当然，函数内我们可以使用 `let` 声明块级作用域，就像我们以前使用 `var` 一样。
 
+```js
+function eta() {
+    let a = 'Scooby Doo';
+}
+eta();
+```
+
+这里 `a` 的作用域为函数 `eta` 内。我们还可以扩展到条件块和循环。块级作用域包括变量定义的顶层块中包含的任何子块。
+
+```js
+for (let b = 0; b < 5; b++) {
+    if (b % 2) {
+        console.log(b);
+    }
+}
+console.log(b); // 'ReferenceError: b is not defined'
+```
+
+在本例中，`b` 在 `for` 循环范围内的块级作用域(其中包括条件块)内起作用。因此，它将输出奇数 1 和 3 ，然后抛出一个错误，因为我们不能在它的作用域之外访问 `b`。
+
+我们之前看到 JavaScript 奇怪的变量提升而影响到函数 `zeta` 的结果，如果我们重写函数使用let会发生什么呢？
+
+```js
+var d = 'Tom';
+function zeta() {
+    if (d === undefined) {
+        let d = 'Jerry';
+    }
+    console.log(d);
+}
+zeta();
+```
+
+这一次 `zeta` 输出 “Tom” ，因为 d 被限定为作用在条件块内，但是这是否意味着这里没有提升？不，当我们使用 `let` 或 `const` 时，  JavaScript 仍然会将变量提升到作用域的顶部，但是和 `var` 不同的是，`var`声明的变量提升后初始值为 `undefined`，`let` 和 `const` 声明的变量提升后没有初始化，它们存在于暂时性死区中。
+
+让我们看一下在初始化声明之前使用一个块级作用域的变量会发生什么。
+
+```js
+function theta() {
+    console.log(e); // 输出 'undefined'
+    console.log(f); // 'ReferenceError: d is not defined'
+    var e = 'Wile E. Coyote';
+    let f = 'Road Runner';
+}
+theta();
+```
+
+因此，调用 `theta` 将为局部作用域的变量 `e` 输出 `undefined`，并为块级作用域的变量 `f` 抛出一个错误。在启动 `f` 之前，我们不能使用它，在这种情况下，我们将其值设置为 “Road Runner”。
+
+在继续之前我们需要说明一下，在let和var之间还有一个重要的区别。当我们在代码的最顶层使用var时，它会变成一个全局变量，并在浏览器中添加到window对象中。使用let，虽然变量将变为全局变量，因为它的作用域是整个代码库的块，但它不会成为window对象的属性。
+
+```js
+var g = 'Pinky';
+let h = 'The Brain';
+console.log(window.g); // 输出 'Pinky'
+console.log(window.h); // 输出 undefined
+```
+
+### const
+
+我之前顺便提到过 `const`。这个关键字与 `let` 一起作为 ES6 的一部分引入。就作用域而言，它与 `let` 的工作原理相同。
+
+```js
+if (true) {
+  const a = 'Count Duckula';
+  console.log(a); // 输出 'Count Duckula'
+}
+console.log(a); // 输出 'ReferenceError: a is not defined'
+```
+
+在本例中，`a` 的作用域是 `if` 语句，因此可以在条件语句内部访问，但在条件语句外部是 `undefined`。
+
+与 `let` 不同，`const` 定义的变量不能通过重新赋值来改变。
+
+```js
+const b = 'Danger Mouse';
+b = 'Greenback'; // 抛出 'TypeError: Assignment to constant variable'
+```
+
+然而，当使用数组或对象时，情况有点不同。我们仍然无法重新赋值，因此以下操作将失败
+
+```js
+const c = ['Sylvester', 'Tweety'];
+c = ['Tom', 'Jerry']; // 抛出 'TypeError: Assignment to constant variable'
+```
+
+但是，我们可以修改常量数组或对象，除非我们在变量上使用 `Object.freeze()` 使其不可变。
+
+```js
+const d = ['Dick Dastardly', 'Muttley'];
+d.pop();
+d.push('Penelope Pitstop');
+Object.freeze(d);
+console.log(d); // 输出 ["Dick Dastardly", "Penelope Pitstop"]
+d.push('Professor Pat Pending'); // 抛出错误
+```
 
 ## 全局 + 局部作用域
 
