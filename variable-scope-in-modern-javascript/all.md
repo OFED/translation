@@ -13,7 +13,7 @@
 声明在任何函数之外的顶层作用域的变量就是全局变量。
 
 ```js
-var a = Fred Flinstone; // 全局变量
+var a = 'Fred Flinstone'; // 全局变量
 function alpha() {
     console.log(a);
 }
