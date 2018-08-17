@@ -1,5 +1,6 @@
 > 原文链接：[Variable Scope in Modern JavaScript](https://andy-carter.com/blog/variable-scope-in-modern-javascript)
-> 译者：[OFED](https://github.com/OFED)
+>
+> 译者：[OFED](https://github.com/OFED/translation/issues/2)
 
 # 现代 JavaScript 的变量作用域
 
