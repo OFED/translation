@@ -1,0 +1,21 @@
+# 文章内容布局以及翻译人员
+
+## [ Title ] Building a long press directive in Vue ----- ( jinrui )
+
+文章序言以及简介 ---- ( jinrui )
+
+## [ Chapter1 ] Theory  ----- ( jinrui )
+
+## [ Chapter2 ] How to  ----- ( jinrui )
+
+## [ Chapter3 ] Practical ----- （ ？ ）
+
+### [  paragraph1 ] Variable ----- （ ？ ）
+
+### [  paragraph2 ] Start function ----- （ ？ ）
+
+### [  paragraph3 ] Cancel function ----- （ ？ ）
+
+### [  paragraph4 ] Setting triggers ----- （ ？ ）
+
+### [  paragraph5 ] SWrapping it all in a Vue directive ----- （ ？ ）
