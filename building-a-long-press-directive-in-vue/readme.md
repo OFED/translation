@@ -8,14 +8,14 @@
 
 ## [ Chapter2 ] How to  ----- ( jinrui )
 
-## [ Chapter3 ] Practical ----- （ ？ ）
+## [ Chapter3 ] Practical ----- （ jinrui ）
 
 ### [  paragraph1 ] Variable ----- （ jinrui ）
 
 ### [  paragraph2 ] Start function ----- （ jinrui ）
 
-### [  paragraph3 ] Cancel function ----- （ ？ ）
+### [  paragraph3 ] Cancel function ----- （ jinrui ）
 
-### [  paragraph4 ] Setting triggers ----- （ ？ ）
+### [  paragraph4 ] Setting triggers ----- （ jinrui ）
 
-### [  paragraph5 ] SWrapping it all in a Vue directive ----- （ ？ ）
+### [  paragraph5 ] SWrapping it all in a Vue directive ----- （ jinrui ）
