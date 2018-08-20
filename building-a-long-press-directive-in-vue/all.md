@@ -392,6 +392,6 @@ export default {
 
 <center> . . . </center>
 
-如果你想知道更多关于 **自定义指令**、可用的 **钩子函数**、可以传递到这个钩子函数中的 **参数**、**函数简写** 的信息, 参照 [@vuej](https://vuejs.org/v2/guide/custom-directive.html) 官方文档，作者做了很好的解释。
+如果你想知道更多关于 **自定义指令**、可用的 **钩子函数**、可以传递到这个钩子函数中的 **参数**、**函数简写** 的信息, 参照 [@vuejs](https://vuejs.org/v2/guide/custom-directive.html) 官方文档，作者做了很好的解释。
 
 <center> . . . </center>
