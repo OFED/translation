@@ -119,7 +119,7 @@ let pressTimer = null;
 // 创建计时器（ 1秒后执行函数 ）
 let start = (e) => {
 
-    if (e.type !== 'click' && e.button !== 0) {
+    if (e.type === 'click' && e.button !== 0) {
         return;
     }
 
@@ -190,7 +190,7 @@ Vue.directive('longpress', {
         // 创建计时器（ 1秒后执行函数 ）
         let start = (e) => {
 
-            if (e.type !== 'click' && e.button !== 0) {
+            if (e.type === 'click' && e.button !== 0) {
                 return;
             }
 
@@ -236,7 +236,7 @@ Vue.directive('longpress', {
         // 创建计时器（ 1秒后执行函数 ）
         let start = (e) => {
 
-            if (e.type !== 'click' && e.button !== 0) {
+            if (e.type === 'click' && e.button !== 0) {
                 return;
             }
 
@@ -317,7 +317,7 @@ Vue.directive('longpress', {
         // 创建计时器（ 1秒后执行函数 ）
         let start = (e) => {
 
-            if (e.type !== 'click' && e.button !== 0) {
+            if (e.type === 'click' && e.button !== 0) {
                 return;
             }
 
