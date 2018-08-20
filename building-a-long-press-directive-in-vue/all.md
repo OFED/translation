@@ -1,24 +1,24 @@
 > 原文链接：[Building a long press directive in Vue](https://blog.logrocket.com/building-a-long-press-directive-in-vue-3408d60fb511)
-
+>
 > 译者：[OFED](https://github.com/OFED)
 
-# 用Vue编写一个长按指令
+# 使用 Vue 编写一个长按指令
 
 ![Alt text](https://raw.githubusercontent.com/OFED/translation/master/building-a-long-press-directive-in-vue/img/1_0neT5mha2f00A3CXxA8r6w.png)
 
-你有没有想过只需按住一个按钮几秒钟就能在你的Vue应用程序中执行一个功能？
+有没有想过只需按住一个按钮几秒钟就能在你的 Vue 应用中触发一个功能？
 
-你有没有想过在你的应用程序里创建一个按钮，通过按一次来清除单个输入(或者按住一个按钮清除所有输入)？
+有没有想过创建一个按钮，按下一次就可以清除单次输入（或者持续按住可以清除所有输入）？
 
-你想过？很好，我也是。你来对地方了。
+想过？太好了，英雄所见略同。
 
-本文将教你如何通过按下(或按住)按钮来执行一个功能或移除输入。
+本文就是讲解如何在按下（或者按住）一个按钮时，既执行一个函数，又清除输入。
 
-首先，我将解释如何在 JS 中实现这一点。然后，为它创建一个Vue指令。
+首先，我会讲解如何使用纯 JS 实现。而后也会创建一个 Vue 指令。
 
-系好安全带。我可能要让你大吃一惊。
+请系好安全带。好戏在后头呢。
 
-## 理论
+## 原理
 
 要实现长按，用户需要按住按钮几秒钟。
 
