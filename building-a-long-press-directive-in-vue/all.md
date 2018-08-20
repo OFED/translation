@@ -81,7 +81,7 @@ let start = (e) => {
 
 ### 取消函数
 
-这个函数的作用和它字面上的意思基本上一致，用来取消调用 start 函数时创建的 `setTimeout`。
+这个函数的作用和它字面上的意思基本上一致，用来取消调用 start 函数时创建的 `setTimeout`。
 
 要取消 `setTimeout` ，我们将使用 JavaScript 中的 `clearTimeout`方法，该方法主要用来清除 `setTimeout()`方法设置的计时器。
 
@@ -110,7 +110,7 @@ let cancel = (e) => {
 
 ```js
 // 定义变量
-let pressTimer = null;
+let pressTimer = null;
 
 // 创建计时器（ 1秒后执行函数 ）
 let start = (e) => {
