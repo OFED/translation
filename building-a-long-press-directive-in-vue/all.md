@@ -20,28 +20,28 @@
 
 ## 原理
 
-要实现长按，用户需要按住按钮几秒钟。
+要实现长按，用户需要按下并按住按钮几秒钟。
 
-要通过代码实现这一功能，我们需要在鼠标“点击”按钮时启动一个计时器来监听按钮被按下的时间，不管用户按住按钮多长时间，当设定的时间到了以后执行功能。
+想通过代码模拟这一效果，我们需要在鼠标“点击”按下按钮时，启动一个计时器监听用户按下的时长，如果时间超过我们期望的时长，就执行相应的函数。
 
-非常简单！然而，我们需要知道用户何时按住该按钮。
+非常简单！然而，我们需要知道用户何时按住按钮。
 
 ## 如何实现
 
-当用户点击按钮时，在点击事件之前会触发另外两个事件: `mousedown` 和 `mouseup`。
+当用户点击按钮时，在点击事件之前会触发另外两个事件: **mousedown** 和 **mouseup**。
 
-当用户按下鼠标按钮时调用 `mousedown` 事件，而当用户释放该按钮时调用 `mouseup` 事件。
+当用户按下按钮时触发 `mousedown` 事件，用户松开按钮时调用 `mouseup` 事件。
 
 我们需要做的是:
 
-1. 触发 `mousedown` 事件时，启动计时器。
-1. 一旦 `mouseup` 事件在预先设置的 2 秒前被触发，就清除计时器，不要执行该功能。即这只是一个点击事件。
+1. `mousedown` 事件触发时，启动计时器。
+1. 一旦 `mouseup` 事件在预期的 2 秒前被触发，就清除计时器，不要执行相应的函数。就当作一个普通的点击事件。
 
-只要计时器在到达我们设定的时间之前没有被清除，即 `mouseup` 事件没有被触发——我们可以说用户没有释放按钮。因此，这被认为是一个长按事件，然后我们可以继续执行所述功能。
+只要计时器在我们预设的时间内没有被清除，即 `mouseup` 事件没有被触发——那么可以断定用户没有释放按钮。因此，可以判定为一次长按，可以执行关联的函数。
 
 ## 实践
 
-让我们深入研究一下代码，并完成它。
+让我们深入代码，完成这一功能。
 
 首先，我们必须定义三件事，即:
 
@@ -57,22 +57,22 @@
 let pressTimer = null;
 ```
 
-我们把变量值设置为 `null` 是为了在执行取消操作前，我们可以检查这个变量的值以了解当前是否有一个正在运行的计时器。
+我们把变量值设置为 `null` 是为了在执行取消操作前，检查这个变量的值判断当前是否有一个正在运行的计时器。
 
 ### 启动函数
 
-这个函数包括一个 `setTimeout`，这是 Javascript 中的一种基本方法，它允许我们在规定的特定持续时间之后执行一个函数。
+这个函数包括一个 [setTimeout](https://www.w3schools.com/jsref/met_win_settimeout.asp)，它是 JavaScript 中的一个基本方法，允许在特定时间之后执行一个函数。
 
-请记住，在创建 `click` 事件的过程中，会触发两个事件。但是我们需要启动计时器的是 `mousedown` 事件。因此，如果是点击事件，我们不需要启动计时器。
+注意，`click` 事件执行的过程中，会触发另外两个事件。但是我们需要启动计时器的是 `mousedown` 事件。如果只是点击事件，不需要启动计时器。
 
 ```js
-// 创建计时器 ( 1s之后运行函数 )
+// 创建计时器 ( 1s之后执行函数 )
 let start = (e) => {
     // 如果是点击事件，不启动计时器
     if (e.type === 'click' && e.button !== 0) {
         return;
     }
-    // 在开启一个定时器之前确保没有正在运行的计时器
+    // 在启动一个定时器之前确保没有正在运行的计时器
     if (pressTimer === null) {
         pressTimer = setTimeout(() => {
             // 执行任务 !!!
@@ -83,11 +83,11 @@ let start = (e) => {
 
 ### 取消函数
 
-这个函数的作用和它字面上的意思基本上一致，用来取消调用 start 函数时创建的 `setTimeout`。
+这个函数见名知意，用来取消启动函数创建的 `setTimeout`。
 
-要取消 `setTimeout` ，我们将使用 JavaScript 中的 `clearTimeout`方法，该方法主要用来清除 `setTimeout()`方法设置的计时器。
+要取消 `setTimeout` ，可以使用 JavaScript 中的 [clearTimeout](https://www.w3schools.com/jsref/met_win_cleartimeout.asp) 方法，它主要用来清除 [setTimeout()](https://www.w3schools.com/jsref/met_win_settimeout.asp) 方法设置的计时器。
 
-在使用 `clearTimeout` 之前，我们首先需要检查 `pressTimer` 变量是否设置为 `null`。如果没有设置为 `null`，这意味着有一个正在运行的计时器。因此，我们需要清除计时器，并且，你猜对了，将 `pressTimer` 变量设置为 `null`。
+在使用 `clearTimeout` 之前，需要检查 ***pressTimer*** 变量是否为 `null`。如果没有为 `null`，意味着有一个正在运行的计时器。因此，我们需要先清除它，并且将 ***pressTimer*** 变量设置为 ***null***。
 
 ```js
 let cancel = (e) => {
@@ -99,14 +99,16 @@ let cancel = (e) => {
 }
 ```
 
-一旦 `mouseup` 事件被触发，这个函数就会被调用。
+一旦 ***mouseup*** 事件触发，这个函数就会被调用。
 
 ### 设置触发器
 
 剩下的就是将事件侦听器添加到要添加长按效果的按钮上。
 
-    addEventListener("mousedown", start);
-    addEventListener("click", cancel);
+```js
+addEventListener("mousedown", start);
+addEventListener("click", cancel);
+```
 
 综合起来，有以下几点:
 
