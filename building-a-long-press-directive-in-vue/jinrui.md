@@ -10,15 +10,15 @@
 
 本文将教你如何通过按下(或按住)按钮来执行一个功能或移除输入。
 
-首先，我将解释如何在 VanillaJS 中实现这一点。然后，为它创建一个Vue指令。
+首先，我将解释如何在 JS 中实现这一点。然后，为它创建一个Vue指令。
 
 系好安全带。我可能要让你大吃一惊。
 
-## 理论
+## 理论
 
 要实现长按，用户需要按住按钮几秒钟。
 
-要通过代码实现这一功能，我们需要在鼠标“点击”按钮时启动一个计时器来监听按钮被按下的时间，不管用户按住按钮多长时间，当设定的时间到了以后执行功能。
+要通过代码实现这一功能，我们需要在鼠标“点击”按钮时启动一个计时器来监听按钮被按下的时间，不管用户按住按钮多长时间，当设定的时间到了以后执行功能。
 
 非常简单！然而，我们需要知道用户何时按住该按钮。
 
@@ -57,12 +57,12 @@ let pressTimer = null;
 
 ### 启动函数
 
-这个函数包括一个 `setTimeout`，这是 Javascript 中的一种基本方法，它允许我们在规定的特定持续时间之后执行一个函数。
+这个函数包括一个 `setTimeout`，这是 Javascript 中的一种基本方法，它允许我们在规定的特定持续时间之后执行一个函数。
 
 请记住，在创建 `click` 事件的过程中，会触发两个事件。但是我们需要启动计时器的是 `mousedown` 事件。因此，如果是点击事件，我们不需要启动计时器。
 
 ```js
-// 创建计时器 ( 1s之后运行函数 )
+// 创建计时器 ( 1s之后运行函数 )
 let start = (e) => {
     // 如果是点击事件，不启动计时器
     if (e.type === 'click' && e.button !== 0) {
@@ -163,7 +163,7 @@ Vue.directive('longpress', {
 
 这里注册了一个名为 `v-longpress` 的全局自定义指令。
 
-接下来，我们添加带有一些参数的 bind hook 函数，它允许我们引用指令绑定到的元素，获取传递给指令的值，并标识指令使用的组件。
+接下来，我们添加带有一些参数的 bind 钩子函数，它允许我们引用指令绑定到的元素，获取传递给指令的值，并标识指令使用的组件。
 
 ```js
 Vue.directive('longpress', {
@@ -180,7 +180,7 @@ Vue.directive('longpress', {
     bind: function(el, binding, vNode) {
 
         // 定义变量
-        let pressTimer = null;
+        let pressTimer = null;
 
         // 定义函数处理程序
         // 创建计时器（ 1秒后运行函数 ）
@@ -226,7 +226,7 @@ Vue.directive('longpress', {
     bind: function(el, binding, vNode) {
 
         // 定义变量
-        let pressTimer = null;
+        let pressTimer = null;
 
         // 定义函数处理程序
         // 创建计时器（ 1秒后运行函数 ）
@@ -307,7 +307,7 @@ Vue.directive('longpress', {
         }
 
         // 定义变量
-        let pressTimer = null;
+        let pressTimer = null;
 
         // 定义函数处理程序
         // 创建计时器（ 1秒后运行函数 ）
@@ -386,6 +386,6 @@ export default {
 
 <center> . . . </center>
 
-如果你想知道更多关于 **自定义指令**、可用的 **钩子函数**、可以传递到这个钩子函数中的 **参数**、**函数简写** 的信息, 参照 [@vuej](https://vuejs.org/v2/guide/custom-directive.html) 官方文档，作者做了很好的解释。
+如果你想知道更多关于 **自定义指令**、可用的 **钩子函数**、可以传递到这个钩子函数中的 **参数**、**函数简写** 的信息, 参照 [@vuej](https://vuejs.org/v2/guide/custom-directive.html) 官方文档，作者做了很好的解释。
 
 <center> . . . </center>
