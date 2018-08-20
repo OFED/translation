@@ -10,9 +10,9 @@
 
 ## [ Chapter3 ] Practical ----- （ ？ ）
 
-### [  paragraph1 ] Variable ----- （ ？ ）
+### [  paragraph1 ] Variable ----- （ jinrui ）
 
-### [  paragraph2 ] Start function ----- （ ？ ）
+### [  paragraph2 ] Start function ----- （ jinrui ）
 
 ### [  paragraph3 ] Cancel function ----- （ ？ ）
 
