@@ -103,14 +103,14 @@ let cancel = (e) => {
 
 ### 设置触发器
 
-剩下的就是将事件侦听器添加到要添加长按效果的按钮上。
+剩下的就是将事件监听器添加到想要长按效果的按钮上。
 
 ```js
 addEventListener("mousedown", start);
 addEventListener("click", cancel);
 ```
 
-综合起来，有以下几点:
+以上代码合到一起是这样:
 
 ```js
 // 定义变量
@@ -142,22 +142,20 @@ let cancel = (e) => {
     }
 }
 
-// 选择id为长按按钮的元素
+// 选择 id 为 longPressButton 的元素
 let el = document.getElementById('longPressButton');
 
-// 添加事件侦听器
+// 添加事件监听器
 el.addEventListener("mousedown", start);
 
-// 取消计时
+// 长按事件取消，取消计时器
 el.addEventListener("click", cancel);
 el.addEventListener("mouseout", cancel);
 ```
 
-### 用一个 Vue 指令把它包装起来
+### 用 Vue 指令包装
 
-创建 **Vue** 指令时，**Vue** 允许我们为组件全局或局部定义一个指令，但是在本文中，我们采用全局定义的方式。
-
-让我们构建实现这一功能的指令。
+创建 Vue 指令时，可以创建全局或局部指令，本文中，我们采用全局指令。
 
 首先，我们必须声明自定义指令的名称。
 
@@ -167,9 +165,9 @@ Vue.directive('longpress', {
 })
 ```
 
-这里注册了一个名为 `v-longpress` 的全局自定义指令。
+这就注册了一个名为 ***v-longpress*** 的全局自定义指令。
 
-接下来，我们添加带有一些参数的 bind 钩子函数，它允许我们引用指令绑定到的元素，获取传递给指令的值，并标识指令使用的组件。
+接下来，我们添加带参数的 bind [钩子函数](https://vuejs.org/v2/guide/custom-directive.html#Hook-Functions)，它允许我们引用指令绑定的元素，获取传递给指令的值，并标识指令使用的组件。
 
 ```js
 Vue.directive('longpress', {
@@ -179,7 +177,7 @@ Vue.directive('longpress', {
 })
 ```
 
-接下来，我们在 bind 函数中添加实现长按功能的 JavaScript 代码。
+接下来，我们在 bind 函数中添加长按功能的代码。
 
 ```js
 Vue.directive('longpress', {
@@ -189,7 +187,7 @@ Vue.directive('longpress', {
         let pressTimer = null;
 
         // 定义函数处理程序
-        // 创建计时器（ 1秒后运行函数 ）
+        // 创建计时器（ 1秒后执行函数 ）
         let start = (e) => {
 
             if (e.type !== 'click' && e.button !== 0) {
@@ -205,7 +203,7 @@ Vue.directive('longpress', {
             }
         }
 
-        // 停止计时器
+        // 取消计时器
         let cancel = (e) => {
 
             // 检查是否有正在运行的计时器
@@ -215,17 +213,17 @@ Vue.directive('longpress', {
             }
         }
 
-        // 添加事件侦听器
+        // 添加事件监听器
         el.addEventListener("mousedown", start);
 
-        // 取消计时
+        // 取消计时器
         el.addEventListener("click", cancel);
         el.addEventListener("mouseout", cancel);
     }
 })
 ```
 
-接下来，我们需要添加一个函数来运行将传递给 `longpress` 指令的方法。
+接下来，我们需要添加一个函数来运行传递给 ***longpress*** 指令的方法。
 
 ```js
 Vue.directive('longpress', {
@@ -235,7 +233,7 @@ Vue.directive('longpress', {
         let pressTimer = null;
 
         // 定义函数处理程序
-        // 创建计时器（ 1秒后运行函数 ）
+        // 创建计时器（ 1秒后执行函数 ）
         let start = (e) => {
 
             if (e.type !== 'click' && e.button !== 0) {
@@ -244,7 +242,7 @@ Vue.directive('longpress', {
 
             if (pressTimer === null) {
                 pressTimer = setTimeout(() => {
-                    // 运行函数
+                    // 执行函数
                     handler();
                 }, 1000)
             }
@@ -266,19 +264,19 @@ Vue.directive('longpress', {
             binding.value(e)
         }
 
-        // 添加事件侦听器
+        // 添加事件监听器
         el.addEventListener("mousedown", start);
 
-        // 取消计时
+        // 取消计时器
         el.addEventListener("click", cancel);
         el.addEventListener("mouseout", cancel);
     }
 })
 ```
 
-现在，我们可以在我们的 Vue 应用程序中使用这个指令，除非用户在指令值中添加一个不是函数的值。因此，一旦发生这种情况，我们必须通过警告用户来防止这种情况。
+现在，可以在 Vue 应用中使用这个指令了，除非使用者给指令传入的值不是一个函数。因此，我们需要通过警告反馈给使用者。
 
-为了警告用户，我们在 bind 函数中添加了以下内容:
+为了反馈给使用者，我们在 bind 函数中添加了以下内容:
 
 ```js
 // 确保提供的表达式是函数
@@ -293,9 +291,9 @@ if (typeof binding.value !== 'function') {
 }
 ```
 
-最后，如果这个指令也适用于触屏设备，那将会很棒。因此，我们为 `touchstart`、`touchend` 和 `touchcancel` 添加事件侦听器。
+最后，如果这个指令也适用于触屏设备，那会是极好的。因此，我们添加了 [touchstart](https://developer.mozilla.org/en-US/docs/Web/Events/touchstart)、[touchend](https://developer.mozilla.org/en-US/docs/Web/Events/touchend) 和 [touchcancel](https://developer.mozilla.org/en-US/docs/Web/Events/touchcancel) 事件监听器。
 
-把所有东西放在一起:
+最终代码如下:
 
 ```js
 Vue.directive('longpress', {
@@ -316,7 +314,7 @@ Vue.directive('longpress', {
         let pressTimer = null;
 
         // 定义函数处理程序
-        // 创建计时器（ 1秒后运行函数 ）
+        // 创建计时器（ 1秒后执行函数 ）
         let start = (e) => {
 
             if (e.type !== 'click' && e.button !== 0) {
@@ -325,13 +323,13 @@ Vue.directive('longpress', {
 
             if (pressTimer === null) {
                 pressTimer = setTimeout(() => {
-                    // 运行函数
+                    // 执行函数
                     handler();
                 }, 1000)
             }
         }
 
-        // 停止计时
+        // 取消计时器
         let cancel = (e) => {
 
             // 检查计时器是否有值
@@ -347,11 +345,11 @@ Vue.directive('longpress', {
             binding.value(e)
         }
 
-        // 添加事件侦听器
+        // 添加事件监听器
         el.addEventListener("mousedown", start);
         el.addEventListener("touchstart", start);
 
-        // 取消计时
+        // 取消计时器
         el.addEventListener("click", cancel);
         el.addEventListener("mouseout", cancel);
         el.addEventListener("touchend", cancel);
@@ -360,7 +358,7 @@ Vue.directive('longpress', {
 })
 ```
 
-现在可以在Vue组件里使用了:
+现在可以在 Vue 组件里使用了:
 
 ```html
 <template>
@@ -391,6 +389,10 @@ export default {
 ```
 
 <center> . . . </center>
+
+了解更多自定义指令的信息，可以看[这里](https://vuejs.org/v2/guide/custom-directive.html)，@vuejs 已经解释得很棒了！
+
+收工，干杯！
 
 如果你想知道更多关于 **自定义指令**、可用的 **钩子函数**、可以传递到这个钩子函数中的 **参数**、**函数简写** 的信息, 参照 [@vuej](https://vuejs.org/v2/guide/custom-directive.html) 官方文档，作者做了很好的解释。
 
