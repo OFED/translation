@@ -40,8 +40,6 @@
 
 - 翻译中
 
-https://blog.logrocket.com/building-a-long-press-directive-in-vue-3408d60fb511
-
 - 待翻译
 
 https://blog.risingstack.com/d3-js-tutorial-bar-charts-with-javascript/
@@ -65,3 +63,5 @@ https://auth0.com/blog/react-router-4-practical-tutorial/
 - 已完成
 
 <del>https://andy-carter.com/blog/variable-scope-in-modern-javascript</del>
+
+<del>https://blog.logrocket.com/building-a-long-press-directive-in-vue-3408d60fb511</del>
