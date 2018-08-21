@@ -4,7 +4,7 @@
 
 ## 前言：
 
-The React Context API 在 React 生态系统中并不是个新鲜事物。不过，在 React '16.3.0' 版本中做了一些[改进](https://auth0.com/blog/whats-new-in-react-16-3/)。这些改进是如此巨大，以至于它们大大减少了对Redux和其他高级状态管理库的需求。在本文中，你将通过一个实用教程了解到新的React Context API是如何取代Redux完成小型应用的状态管理的。
+The React Context API 在 React 生态系统中并不是个新鲜事物。不过，在 React `16.3.0` 版本中做了一些[改进](https://auth0.com/blog/whats-new-in-react-16-3/)。这些改进是如此巨大，以至于它们大大减少了对Redux和其他高级状态管理库的需求。在本文中，你将通过一个实用教程了解到新的React Context API是如何取代Redux完成小型应用的状态管理的。
 
 ## Redux快速回顾
 
