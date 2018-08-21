@@ -42,6 +42,8 @@
 
 https://www.sitepoint.com/flow-control-callbacks-promises-async-await/
 
+https://auth0.com/blog/react-context-api-managing-state-with-ease/
+
 https://daveceddia.com/context-api-vs-redux/
 
 - 待翻译
