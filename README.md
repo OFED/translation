@@ -50,8 +50,6 @@ https://scotch.io/tutorials/handling-authentication-in-vue-using-vuex
 
 https://blog.risingstack.com/d3-js-tutorial-bar-charts-with-javascript/
 
-https://daveceddia.com/context-api-vs-redux/
-
 https://auth0.com/blog/developing-real-time-web-applications-with-server-sent-events/
 
 
