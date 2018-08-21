@@ -2,11 +2,11 @@
 
 ## [ Title ] React Context API: Managing State with Ease ----- ( qiaosin )
 
-文章序言以及简介 ---- (  )
+文章序言以及简介 ---- ( qiaosin )
 
-## [ Chapter1 ] Quick  ----- (  )
+## [ Chapter1 ] Quick  ----- ( qiaosin )
 
-## [ Chapter2 ] How to  ----- (  )
+## [ Chapter2 ] React  ----- ( qiaosin )
 
 ## [ Chapter3 ] Creating ----- （  ）
 
