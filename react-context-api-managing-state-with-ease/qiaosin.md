@@ -275,6 +275,8 @@ input {
 
 ```
 
+![Alt text](https://raw.githubusercontent.com/OFED/translation/master/react-context-api-managing-state-with-ease/img/react-app-with-redux.png)
+
 完成了！你现在有了一个基本的 React 和 Redux 的应用，可以开始学习如何迁移到 Context API 上了。
 
 ## 用 React Context API 实现 React Apps
