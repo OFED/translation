@@ -10,15 +10,15 @@
 
 ### [ paragraph2-1 ] Callback Hell  ----- （ ? ）
 
-## [ Chapter3 ] Promises  -----  ( ? )
+## [ Chapter3 ] Promises  -----  ( jinlong )
 
-### [ paragraph3-1 ] Asynchronous Chaining  ----- （ ? ）
+### [ paragraph3-1 ] Asynchronous Chaining  ----- （ jinlong ）
 
-### [ paragraph3-2 ] Multiple Asynchronous Calls with Promise.all()  ----- （ ? ）
+### [ paragraph3-2 ] Multiple Asynchronous Calls with Promise.all()  ----- （ jinlong ）
 
-### [ paragraph3-3 ] Multiple Asynchronous Calls with Promise.race()  ----- （ ? ）
+### [ paragraph3-3 ] Multiple Asynchronous Calls with Promise.race()  ----- （ jinlong ）
 
-### [ paragraph3-4 ] A Promising Future?  ----- （ ? ）
+### [ paragraph3-4 ] A Promising Future?  ----- （ jinlong ）
 
 ## [ Chapter4 ] Async/Await  -----  ( jinrui )
 
