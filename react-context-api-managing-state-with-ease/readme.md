@@ -22,10 +22,10 @@
 
 ### [  paragraph6 ] Migrating ----- （ qiaosin ）
 
-## [ Chapter4 ] Aside ----- ( qiaosin )
+## [ Chapter4 ] Aside ----- ( 略 )
 
-### [  paragraph1 ] Setting ----- （  ）
+### [  paragraph1 ] Setting ----- （ 略 ）
 
-### [  paragraph2 ] Dependencies ----- （  ）
+### [  paragraph2 ] Dependencies ----- （ 略 ）
 
-## [ Chapter5 ] Conclusion ----- (  )
+## [ Chapter5 ] Conclusion ----- ( qiaosin )

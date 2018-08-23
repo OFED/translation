@@ -312,9 +312,9 @@ export default App;
 
 ## 从 Redux 迁移到 React Context API
 
-要将之前的应用从 Redux 驱动的应用转换为使用 Context API，您需要一个 context 来存储应用的数据(该 context 将替换 Redux Store)。此外，您还需要一个 `Context.Provider` 组件，该组件包含 `state`、`props` 和正常的 React 组件生命周期。
+要将之前的应用从 Redux 驱动的应用转换为使用 Context API，你需要一个 context 来存储应用的数据(该 context 将替换 Redux Store)。此外，你还需要一个 `Context.Provider` 组件，该组件包含 `state`、`props` 和正常的 React 组件生命周期。
 
-为此，您需要在src目录中创建一个 `providers.js` 文件，并向其中添加以下代码：
+为此，你需要在src目录中创建一个 `providers.js` 文件，并向其中添加以下代码：
 
 ```js
 
@@ -344,9 +344,9 @@ export default class Provider extends React.Component {
 
 上面代码中定义的 `Provider` 类负责将其他组件封装在 `ThemeContext.Provider` 中。通过这样做，你可以让这些组件访问应用中的 state 和 `searchTermChanged` 方法，该方法提供了更改该 state 的方法。
 
-若要稍后在组件树中使用这些值，您需要启动一个 `ThemeContext.Consumer` 组件。这个组件将需要一个 render 渲染方法，该方法将接收上述值 `props` 作为参数。
+若要稍后在组件树中使用这些值，你需要启动一个 `ThemeContext.Consumer` 组件。这个组件将需要一个 render 渲染方法，该方法将接收上述值 `props` 作为参数。
 
-因此，接下来，您需要在src目录中创建一个名为 `customer.js` 的文件，并将以下代码写入其中：
+因此，接下来，你需要在src目录中创建一个名为 `customer.js` 的文件，并将以下代码写入其中：
 
 ```js
 
@@ -382,7 +382,7 @@ export default class Consumer extends React.Component {
 
 ```
 
-现在，为了完成迁移，您将打开 `index.js` 文件，并在 `render()` 函数中，用 `Consumer` 组件包装 `App` 组件。此外，你需要将 `Consumer` 包装在 `Provider` 组件中。代码如下所示：
+现在，为了完成迁移，你将打开 `index.js` 文件，并在 `render()` 函数中，用 `Consumer` 组件包装 `App` 组件。此外，你需要将 `Consumer` 包装在 `Provider` 组件中。代码如下所示：
 
 ```js
 
@@ -407,5 +407,9 @@ ReactDOM.render(
 
 ## 题外话：使用 Auth0 使你的 React 应用更安全
 
+原文中有关于Auth0使用的详细教程，但译者认为此处内容和本文主题关系不大，故不作翻译。感兴趣者可移步[原文](https://auth0.com/blog/react-context-api-managing-state-with-ease/)阅读该部分内容。
 
+## 总结
+
+Redux 是一个高级状态管理库，适合在构建大规模 React 应用时使用。另一方面，The Context API 可以用于字节大小级别数据更改的小规模 React 应用中。通过使用 Context API，你不必像 `reducers`、`actions` 等一样编写大量代码，就能完成状态变化的逻辑表现。
 
