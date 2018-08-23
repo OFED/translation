@@ -186,7 +186,7 @@ ReactDOM.render(
 
 ## 创建UI界面
 
-现在，你已经完成了应用中的核心代码，你可以专注于构建你的用户界面。为此，打开你的 `app.js` 文件，用下方代码替换它的内容：
+现在，你已经完成了应用中的核心代码，你可以专注于构建你的用户界面。为此，打开你的 `App.js` 文件，用下方代码替换它的内容：
 
 ```js
 
@@ -348,7 +348,7 @@ export default class Provider extends React.Component {
 
 若要稍后在组件树中使用这些值，你需要启动一个 `ThemeContext.Consumer` 组件。这个组件将需要一个 render 渲染方法，该方法将接收上述值 `props` 作为参数。
 
-因此，接下来，你需要在src目录中创建一个名为 `customer.js` 的文件，并将以下代码写入其中：
+因此，接下来，你需要在src目录中创建一个名为 `consumer.js` 的文件，并将以下代码写入其中：
 
 ```js
 
