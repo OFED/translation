@@ -8,21 +8,21 @@
 
 ## [ Chapter2 ] React  ----- ( qiaosin )
 
-## [ Chapter3 ] Creating ----- （  ）
+## [ Chapter3 ] Creating ----- （ qiaosin ）
 
-### [  paragraph1 ] Project ----- （  ）
+### [  paragraph1 ] Project ----- （ qiaosin ）
 
-### [  paragraph2 ] Scaffolding ----- （  ）
+### [  paragraph2 ] Scaffolding ----- （ qiaosin ）
 
-### [  paragraph3 ] Developing ----- （  ）
+### [  paragraph3 ] Developing ----- （ qiaosin ）
 
-### [  paragraph4 ] Building ----- （  ）
+### [  paragraph4 ] Building ----- （ qiaosin ）
 
-### [  paragraph5 ] Implementing ----- （  ）
+### [  paragraph5 ] Implementing ----- （ qisosin ）
 
-### [  paragraph6 ] Migrating ----- （  ）
+### [  paragraph6 ] Migrating ----- （ qiaosin ）
 
-## [ Chapter4 ] Aside ----- (  )
+## [ Chapter4 ] Aside ----- ( qiaosin )
 
 ### [  paragraph1 ] Setting ----- （  ）
 
