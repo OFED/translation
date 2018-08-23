@@ -28,13 +28,13 @@ The React Context API 提供了一种通过组件树传递数据的方法，而�
 
 1. 将初始状态传递给 `React.createContext`。这个方法会返回一个带有 `Provider` 和 `Consumer` 的对象。
 2. 使用 `Provider` 组件包裹在组件树的最外层，并接收一个 value 属性。value 属性可以是任何值。
-3. 在 `Provider` 组件下的 `Consumer` 组件在组件树的任何位置都能接收到状态的子集
+3. 在 `Provider` 组件下的 `Consumer` 组件在组件树的任何位置都能接收到状态的子集。
 
-如你所见，所涉及的概念实际上与 Redux 没有什么不同。事实上，甚至 Redux 也在其公共API的底层使用了 React Context API。然而，直到最近，Context API 才达到了足够成熟的水平，可以独立使用。
+如你所见，所涉及的概念实际上与 Redux 没有什么不同。事实上，甚至 Redux 也在其公共API的底层使用了 React Context API。然而，直到最近，Context API 才达到了足够独立使用的水平。
 
 ## 使用 Redux 创建 React 应用
 
-如上所述，本文的目标是向你展示新的 Context API 如何在小型应用中替代 Redux 的。因此，你将首先用 Redux 创建一个简单的 React app，然后，你将学习如何删除这个状态管理库，以便可以使用 React Context API。
+如上所述，本文的目标是向你展示新的 Context API 如何在小型应用中替代 Redux 的。因此，你将首先用 Redux 创建一个简单的 React app，然后，你将学习如何删除这个状态管理库，以便可以使用 React Context API 来再次实现它。
 
 你将构建的示例应用是一个处理一些流行食物及其来源的列表。这个应用还将包括一个搜索功能，使用户能够根据一些关键词过滤列表。
 
