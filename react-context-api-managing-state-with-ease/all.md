@@ -50,7 +50,7 @@ The React Context API 提供了一种通过组件树传递数据的方法，而�
 
 安装这些依赖后，你还需要安装 `create-react-app` 工具。这个工具帮助开发人员创建 React 项目。打开一个终端并运行以下命令来安装:
 
-```js
+```bash
 npm i -g create-react-app
 ```
 
@@ -58,13 +58,13 @@ npm i -g create-react-app
 
 安装完 `create-react-app` 后，进入项目所在目录，执行以下命令：
 
-```js
+```bash
 create-react-app redux-vs-context
 ```
 
 几秒钟后，`create-react-app` 将完成应用程序的创建。在此之后，进入该工具创建的新目录，并安装 Redux：
 
-```js
+```bash
 # move into your project
 cd redux-vs-context
 
@@ -241,7 +241,7 @@ export default connect(store => store, actions)(App);
 
 使用以下命令启动你的应用，你将能够在浏览器中访问你的应用：
 
-```js
+```bash
 
 npm run start
 
@@ -291,7 +291,7 @@ input {
 
 作为开始，你必须先从你的应用中移除Redux组件。为此，请打开终端，删除 `redux` 和 `react-redux` 库：
 
-```js
+```bash
 
 npm rm redux react-redux
 
