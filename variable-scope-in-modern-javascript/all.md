@@ -1,8 +1,8 @@
+# 现代 JavaScript 的变量作用域
+
 > 原文链接：[Variable Scope in Modern JavaScript](https://andy-carter.com/blog/variable-scope-in-modern-javascript)
 >
 > 译者：[OFED](https://github.com/OFED/translation/issues/2)
-
-# 现代 JavaScript 的变量作用域
 
 当与其他 JavaScript 开发人员交谈时，令我经常感到惊讶的是，有很多人不知道**变量作用域**是如何在 JavaScript 里起作用的。这里我们说的作用域指的是代码里变量的可见性；或者换句话说，哪部分代码可以访问和修改变量。我发现大家在代码中经常用 `var` 声明变量，而并不知道 JavaScript 将如何处理这些变量。
 

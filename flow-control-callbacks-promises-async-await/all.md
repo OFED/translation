@@ -1,8 +1,8 @@
+# 现代 JS 流程控制：从回调函数到 Promises 再到 Async/Await
+
 > 原文链接：[Flow Control in Modern JS: Callbacks to Promises to Async/Await](https://www.sitepoint.com/flow-control-callbacks-promises-async-await/)
 >
-> 译者：[OFED](https://github.com/OFED)
-
-# 现代 JS 流程控制：从回调函数到 Promises 再到 Async/Await
+> 译者：[OFED](https://github.com/OFED/translation/issues/4)
 
 JavaScript 通常被认为是异步的。它意味着什么？它如何影响发展？近年来，它发生了怎样的变化？
 

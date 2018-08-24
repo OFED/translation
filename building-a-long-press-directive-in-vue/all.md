@@ -1,8 +1,8 @@
+# 使用 Vue 编写一个长按指令
+
 > 原文链接：[Building a long press directive in Vue](https://blog.logrocket.com/building-a-long-press-directive-in-vue-3408d60fb511)
 >
 > 译者：[OFED](https://github.com/OFED)
-
-# 使用 Vue 编写一个长按指令
 
 ![Alt text](https://raw.githubusercontent.com/OFED/translation/master/building-a-long-press-directive-in-vue/img/1_0neT5mha2f00A3CXxA8r6w.png)
 

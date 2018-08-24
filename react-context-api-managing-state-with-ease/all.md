@@ -1,8 +1,8 @@
+# React Context API: 轻松管理状态
+
 > 原文链接：[React Context API: Managing State with Ease](https://auth0.com/blog/react-context-api-managing-state-with-ease/)
 >
-> 译者：[OFED](https://github.com/OFED)
-
-# React Context API: 轻松管理状态
+> 译者：[OFED](https://github.com/OFED/translation/issues/5)
 
 使用最新的 React Context API 管理状态非常容易。现在就跟随我一起学习下它和 Redux 的区别以及它是如何使用的吧。
 
