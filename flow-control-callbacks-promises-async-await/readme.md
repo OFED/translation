@@ -4,11 +4,11 @@
 
 文章序言以及简介 ---- ( jinrui )
 
-## [ Chapter1 ] Single-thread Processing  ----- ( ? )
+## [ Chapter1 ] Single-thread Processing  ----- ( jinrui )
 
-## [ Chapter2 ] Going Asynchronous with Callbacks  ----- ( ? )
+## [ Chapter2 ] Going Asynchronous with Callbacks  ----- ( jinrui )
 
-### [ paragraph2-1 ] Callback Hell  ----- （ ? ）
+### [ paragraph2-1 ] Callback Hell  ----- （ jinrui ）
 
 ## [ Chapter3 ] Promises  -----  ( jinlong )
 
