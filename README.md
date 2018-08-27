@@ -40,15 +40,13 @@
 
 - 翻译中
 
-
+https://blog.risingstack.com/d3-js-tutorial-bar-charts-with-javascript/
 
 - 待翻译
 
-https://scotch.io/tutorials/handling-authentication-in-vue-using-vuex
-
-https://blog.risingstack.com/d3-js-tutorial-bar-charts-with-javascript/
-
 https://auth0.com/blog/developing-real-time-web-applications-with-server-sent-events/
+
+https://scotch.io/tutorials/handling-authentication-in-vue-using-vuex
 
 
 
