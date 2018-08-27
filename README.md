@@ -40,11 +40,7 @@
 
 - 翻译中
 
-https://www.sitepoint.com/flow-control-callbacks-promises-async-await/
 
-https://auth0.com/blog/react-context-api-managing-state-with-ease/
-
-https://daveceddia.com/context-api-vs-redux/
 
 - 待翻译
 
@@ -69,6 +65,10 @@ https://levelup.gitconnected.com/understanding-react-render-props-by-example-71f
 https://auth0.com/blog/react-router-4-practical-tutorial/
 
 - 已完成
+
+<del>https://www.sitepoint.com/flow-control-callbacks-promises-async-await/</del>
+
+<del>https://auth0.com/blog/react-context-api-managing-state-with-ease/</del>
 
 <del>https://andy-carter.com/blog/variable-scope-in-modern-javascript</del>
 
