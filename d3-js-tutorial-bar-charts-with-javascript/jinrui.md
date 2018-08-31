@@ -96,7 +96,7 @@ const chart = svg.append('g')
 
 要开始绘图，我需要定义我工作的数据源。在本教程中，我使用了一个简单的 JavaScript 数组，该数组保存了带有语言名称及其所占百分比率的对象，但是这里要提到很重要的一点是 D3.js 支持多种数据格式。
 
-该库具有从 XMLHttpRequest，.CSV 文件，文本文件等加载内容的内置功能。这些源中的每一个都可能包含 D3.js 可以使用的数据，唯一重要的事是通过它们构建一个数组。请注意，从[版本5.0](https://github.com/d3/d3/blob/master/CHANGES.md)开始，D3 库使用 Promise 而不是回调来加载数据，这是一种非向后兼容的更改。
+该库具有从 XMLHttpRequest，.CSV 文件，文本文件等加载内容的内置功能。这些源中的每一个都可能包含 D3.js 可以使用的数据，唯一重要的事是通过它们构建一个数组。请注意，从 [版本5.0](https://github.com/d3/d3/blob/master/CHANGES.md) 开始，D3 库使用 Promise 而不是回调来加载数据，这是一种非向后兼容的更改。
 
 ## 缩放，坐标轴
 
@@ -225,3 +225,123 @@ chart.append('g')
 ![](https://raw.githubusercontent.com/OFED/translation/master/d3-js-tutorial-bar-charts-with-javascript/img/d3-js-tutorial-adding-labels-to-bar-chart-javascript.png)
 
 文本是可以附加到 SVG 或 groups 上的 SVG 元素。它们可以用 x 和 y 坐标定位，而文本对齐是用 `text-anchor` 属性完成的。要添加标签，只需调用文本元素上的 `text` 方法。
+
+```js
+svg.append('text')
+    .attr('x', -(height / 2) - margin)
+    .attr('y', margin / 2.4)
+    .attr('transform', 'rotate(-90)')
+    .attr('text-anchor', 'middle')
+    .text('Love meter (%)')
+
+svg.append('text')
+    .attr('x', width / 2 + margin)
+    .attr('y', 40)
+    .attr('text-anchor', 'middle')
+    .text('Most loved programming languages in 2018')
+```
+
+## D3.js 交互效果
+
+我们得到了相当丰富的图表，但是仍然有可能让它具有互动性。
+
+在下一个代码块中，我将向你展示如何将事件监听器添加到 SVG 元素中。
+
+```js
+svgElement
+    .on('mouseenter', function (actual, i) {
+        d3.select(this).attr(‘opacity’, 0.5)
+    })
+    .on('mouseleave’, function (actual, i) {
+        d3.select(this).attr(‘opacity’, 1)
+    })
+```
+
+*请注意，我使用函数表达式而不是箭头函数，因为我通过 this 关键字访问元素。*
+
+我将鼠标悬停时所选 SVG 元素的不透明度设置为原始值的一半，并在光标离开该区域时重置它。
+
+你也可以用 `d3.mouse` 获得鼠标坐标。它返回一个具有 x 和 y 坐标的数组。这样，在光标顶端显示工具提示就没问题了。
+
+**创建令人瞠目结舌的图表不是一种简单的艺术形式。**
+
+人们可能需要借鉴图形设计师、UX研究人员和其他人的智慧。在下面的例子中，我将展示一些提升图表的可能性！
+
+我在图表上显示了非常相似的值，所以为了突出条形值之间的差异，我为 `mouseenter` 事件设置了一个事件监听器。每当用户悬停在特定的一列上时，该栏的顶部就会画一条水平线。此外，我还计算了与其他 brands 的差异，并将其显示在条形上。
+
+![](https://raw.githubusercontent.com/OFED/translation/master/d3-js-tutorial-bar-charts-with-javascript/img/d3-js-tutorial-adding-interactivity-to-bar-chart.png)
+
+很整洁吧？我还在这个例子中增加了不透明度，并增加了 bar 的宽度。
+
+```js
+.on(‘mouseenter’, function (s, i) {
+    d3.select(this)
+        .transition()
+        .duration(300)
+        .attr('opacity', 0.6)
+        .attr('x', (a) => xScale(a.language) - 5)
+        .attr('width', xScale.bandwidth() + 10)
+
+    chart.append('line')
+        .attr('x1', 0)
+        .attr('y1', y)
+        .attr('x2', width)
+        .attr('y2', y)
+        .attr('stroke', 'red')
+
+    // this is only part of the implementation, check the source code
+})
+```
+
+`transition` 方法表明我想把 DOM 的改变绘制成动画。它的间隔是用 duration 函数设置的，该函数需要毫秒作为参数。上面的过渡会淡化带状颜色，并加宽条形的宽度。
+
+要画一条 SVG 线，我需要起点和终点。这可以通过 `x1`，`y1` 和 `x2`，`y2` 坐标来设置。直到我用 `stroke` 属性设置线条的颜色，线条才可见。
+
+我在这里只展示了 `mouseenter` 事件的一部分，所以请记住，必须在 `mouseout` 事件上恢复或删除更改。本文末尾提供了完整的源代码。
+
+## 让我们给图表添加一些样式吧！
+
+让我们看看到目前为止我们取得了什么成就，以及如何用某种风格改变这张图表。*你可以使用我们以前使用过的 attr 函数向 SVG 元素添加类属性。*
+
+这个图表有一套很好的功能。它也揭示了鼠标悬停时所代表的值之间的差异，而不是单调的静态图片。标题将图表放入上下文中，标签有助于用测量单位来识别是哪个轴。我还在右下角添加了一个新标签来标记输入源。
+
+**唯一剩下的就是升级颜色和字体！**
+
+深色背景的图表使亮色条看起来很酷。我还将 `open Sans` 字体系列应用于所有文本并且不同标签设定不同的字体大小和字体粗细。
+
+你注意到这条线被冲了吗？这可以通过设置 `stroke-width` 和 `stroke-dasharray` 属性来实现。用 `stroke-dasharray` 你可以定义改变形状轮廓的虚线和间隙的样式。
+
+```css
+line#limit {
+    stroke: #FED966;
+    stroke-width: 3;
+    stroke-dasharray: 3 6;
+}
+
+.grid path {
+    stroke-width: 3;
+}
+
+.grid .tick line {
+    stroke: #9FAAAE;
+    stroke-opacity: 0.2;
+}
+```
+
+网格线变得棘手。我必须将 `stroke-width: 0` 应用于组中的路径元素以隐藏图表的框架，我还通过设置线条的不透明度来降低它们的可见性。
+
+所有其他 CSS 规则涵盖了源代码中可以找到的字体大小和颜色。
+
+## 结束我们的 D3.js 条形图教程
+
+D3.js 是一个令人惊叹的 DOM 操作库。它的深度隐藏了无数等待发现的珍宝, 实际上并未真正隐藏，已有很好的记录。这篇文章只涵盖了工具集的片段，这些片段有助于创建一个不那么平庸的条形图。
+
+**继续，探索它，使用它，创造壮观的视觉效果！**
+
+顺便说一下，这是 [源代码](https://codepen.io/kingrychan/pen/MqebJZ?editors=0010) 的链接。
+
+你用 D3.js 创造了一些酷的东西吗？和我们分享！如果你有任何问题，或者想要关于这个主题的另一个教程，请留言！
+
+谢谢你的阅读，下次再见！
+
+![]()
