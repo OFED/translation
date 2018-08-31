@@ -136,4 +136,92 @@ chart.append('g')
     .call(d3.axisBottom(xScale));
 ```
 
-![]()
+![](https://raw.githubusercontent.com/OFED/translation/master/d3-js-tutorial-bar-charts-with-javascript/img/d3-js-tutorial-bar-chart-labels.png)
+
+请注意，我对 x 轴使用 [scaleBand](https://github.com/d3/d3-scale#scaleBand) 方法，用于将 range 分成多个bands，并使用额外的填充来计算 bars 的坐标和宽度。
+
+D3.js 还能够处理许多其他日期类型。[caleTime](https://github.com/d3/d3-scale#scaleTime) 与 [scaleLinear](https://github.com/d3/d3-scale#scaleLinear) 非常相似，只是这里的 domain 是一系列日期。
+
+## 使用 D3.js 绘制图条
+
+想想我们需要什么样的输入来画图条。它们各自代表一个用简单形状，特别是矩形来说明的值。在下一个代码片段中，我将它们追加到创建的 group 元素中。
+
+```js
+chart.selectAll()
+    .data(goals)
+    .enter()
+    .append('rect')
+    .attr('x', (s) => xScale(s.language))
+    .attr('y', (s) => yScale(s.value))
+    .attr('height', (s) => height - yScale(s.value))
+    .attr('width', xScale.bandwidth())
+```
+
+首先，我 `selectAll` 图表上的所有元素，这些元素返回空的结果集。然后，`data` 函数根据数组长度告诉 DOM 应该更新多少元素。如果数据输入长于所选内容，则 `.enter` 标识出缺少的元素。这将返回一个新的选择项，代表需要被添加的元素。通常，后面是一个向 DOM 中添加元素的 `append` 方法。
+
+基本上，我使用 D3.js 为数组的每个成员追加一个矩形。
+
+现在，这只会在彼此的顶部添加没有高度或宽度的矩形。必须计算这两个属性，这也是缩放函数再次派上用场的地方。
+
+看，我用 `attr` 方法添加了矩形的坐标。第二个参数可以是回调，它采用3个参数:输入数据的实际成员、索引和整个输入。
+
+```js
+.attr(’x’, (actual, index, array) =>
+    xScale(actual.value))
+```
+
+scaling 函数返回给定域值的坐标。计算坐标是小菜一碟，诀窍是用 bar 的高度。必须从图表的高度减去计算出的 y 坐标，才能得到正确的列表示值。
+
+我也用缩放函数定义矩形的宽度。`scaleBand` 有一个 `bandwidth` 函数，它基于设置的填充返回一个元素的计算宽度。
+
+![](https://raw.githubusercontent.com/OFED/translation/master/d3-js-tutorial-bar-charts-with-javascript/img/d3-js-tutorial-bar-chart-drawn-out-with-javascript.png)
+
+干得不错，但没那么花哨，对吧？
+
+为了防止观众眼睛流血，让我们添加一些信息并改善视觉效果！
+
+## 制作条形图的技巧
+
+条形图有一些基本规则值得一提。
+
++ 避免使用 3D 效果；
++ 直观地排序数据点 - 按字母顺序或按数字排序；
++ 保持 bands 之间的距离；
++ y 轴从 0 开始，但不使用最小值；
++ 使用统一的颜色；
++ 添加轴标签、标题、源行。
+
+## D3.js 网格系统
+
+我想通过在背景中添加网格线来突出显示这些值。
+
+继续，用垂直线和水平线做实验，但是我的建议是只显示其中一条。过多的线条会分散注意力。这段代码介绍了如何添加这两种解决方案。
+
+```js
+chart.append('g')
+    .attr('class', 'grid')
+    .attr('transform', `translate(0, ${height})`)
+    .call(d3.axisBottom()
+        .scale(xScale)
+        .tickSize(-height, 0, 0)
+        .tickFormat(''))
+
+chart.append('g')
+    .attr('class', 'grid')
+    .call(d3.axisLeft()
+        .scale(yScale)
+        .tickSize(-width, 0, 0)
+        .tickFormat(''))
+```
+
+![](https://raw.githubusercontent.com/OFED/translation/master/d3-js-tutorial-bar-charts-with-javascript/img/d3-js-bar-chart-grid-system-added-with-javascript.png)
+
+在这种情况下，我更喜欢垂直网格线，因为它们可以引导眼睛，保持整体画面简单明了。
+
+## D3.js中的标签
+
+我还想通过添加一些文本指导来使图表更加全面。让我们给图表命名，并为坐标轴添加标签。
+
+![](https://raw.githubusercontent.com/OFED/translation/master/d3-js-tutorial-bar-charts-with-javascript/img/d3-js-tutorial-adding-labels-to-bar-chart-javascript.png)
+
+文本是可以附加到 SVG 或 groups 上的 SVG 元素。它们可以用 x 和 y 坐标定位，而文本对齐是用 `text-anchor` 属性完成的。要添加标签，只需调用文本元素上的 `text` 方法。
