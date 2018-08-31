@@ -344,4 +344,4 @@ D3.js 是一个令人惊叹的 DOM 操作库。它的深度隐藏了无数等待
 
 谢谢你的阅读，下次再见！
 
-![]()
+![](https://raw.githubusercontent.com/OFED/translation/master/d3-js-tutorial-bar-charts-with-javascript/img/12345.gif)
