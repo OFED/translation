@@ -92,4 +92,48 @@ const chart = svg.append('g')
 
 向元素添加属性就像调用 `attr` 方法一样简单。方法的第一个参数接收想要应用于所选DOM元素的属性。第二个参数是值或返回其值的回调函数。上面的代码简单地将图表的原点移到 SVG 的( 60，60 )位置。
 
-## 
+## D3.js支持的数据源格式
+
+要开始绘图，我需要定义我工作的数据源。在本教程中，我使用了一个简单的 JavaScript 数组，该数组保存了带有语言名称及其所占百分比率的对象，但是这里要提到很重要的一点是 D3.js 支持多种数据格式。
+
+该库具有从 XMLHttpRequest，.CSV 文件，文本文件等加载内容的内置功能。这些源中的每一个都可能包含 D3.js 可以使用的数据，唯一重要的事是通过它们构建一个数组。请注意，从[版本5.0](https://github.com/d3/d3/blob/master/CHANGES.md)开始，D3 库使用 Promise 而不是回调来加载数据，这是一种非向后兼容的更改。
+
+## 缩放，坐标轴
+
+让我们继续讨论图表的坐标轴。为了画 y 轴，我需要设定最低和最高的极限值，在这种情况下是 0 和 100。
+
+*在本教程中，我正在研究使用百分比，但是除了数字之外，还有其他数据类型的实用函数，我将在后面解释。*
+
+我必须将图表的高度在这两个值之间分成相等的部分。为此，我创建了一个叫做缩放函数的东西。
+
+```js
+const yScale = d3.scaleLinear()
+    .range([height, 0])
+    .domain([0, 100]);
+```
+
+线性缩放是最常见的缩放类型。它将连续输入域转换为连续输出范围。请注意 `range` 和 `domain` 方法。第一个 `range` 方法取的长度值应该在 `domain` 值的界限之间划分的长度。
+
+记住，SVG坐标系从左上角开始，这就是为什么 `range` 将高度作为第一个参数而不是零。
+
+在左边创建一个轴很简单，就是添加另一个组并调用 D3 的 axisLeft 方法，该方法将缩放函数作为参数。
+
+```js
+chart.append('g')
+    .call(d3.axisLeft(yScale));
+```
+
+现在，继续添加 x 轴。
+
+```js
+const xScale = d3.scaleBand()
+    .range([0, width])
+    .domain(sample.map((s) => s.language))
+    .padding(0.2)
+
+chart.append('g')
+    .attr('transform', `translate(0, ${height})`)
+    .call(d3.axisBottom(xScale));
+```
+
+![]()
