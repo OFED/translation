@@ -1,54 +1,54 @@
 
-# D3.js 教程: 用 JavaScript 构建交互式条形图
+# D3.js 教程: 使用 JavaScript 创建可交互的柱状图
 
 > 原文链接：[D3.js Tutorial: Building Interactive Bar Charts with JavaScript](https://blog.risingstack.com/d3-js-tutorial-bar-charts-with-javascript/)
 >
 > 译者：[OFED](https://github.com/OFED/translation/issues/6)
 
-最近，我们有幸参与了一个机器学习项目，该项目涉及 React 和 D3.js 这样的库。在许多任务中，我开发了很多图表来展示诸如朴素贝叶斯这样的机器学习模型的结果，图表以折线图或分组条形图的形式呈现。
+最近，我们有幸参与了一个机器学习项目，该项目涉及 React 和 D3.js 之类的库。在许多任务中，我开发了几个图表用来展示诸如朴素贝叶斯这样的机器学习模型的处理结果，图表以折线图或分组柱状图的形式呈现。
 
-在这篇文章中，我想用 D3.js 展示我迄今为止的进展，并通过一个简单的条形示例展示这个库的基本用法。
+我会在此文中介绍使用 D3.js 的过程，以及通过一个简单的柱状图示例演示库的基本使用。
 
-阅读本文后，你将学会如何轻松创建这样的 D3.js 图表:
+读完此文后，你将学到如何轻松创建类似的 D3.js 图表:
 
 ![bar chart](https://raw.githubusercontent.com/OFED/translation/master/d3-js-tutorial-bar-charts-with-javascript/img/d3-js-tutorial-bar-chart-made-with-javascript-small.gif)
 
 这里有完整的[源代码](https://codepen.io/kingrychan/pen/MqebJZ?editors=0010)
 
-无论前端还是后端，JavaScript 生态系统以一种上升的趋势越来越得到大家的喜欢。就我个人而言，我对前后端都很感兴趣。在后端，我可以看透应用程序的底层业务逻辑，同时我也有机会在前端创建令人惊叹的东西。这就是 D3.js 发挥作用的地方!
+我们在 RisingStack（公司）喜欢 JavaScript 生态，前端，后端都喜欢。就我个人而言，我对前后端都感兴趣。通过后端开发，我可以看透应用程序的底层业务逻辑，同时也有机会在前端创建令人惊叹的效果。这正是 D3.js 的用武之地!
 
 ## D3.js 是什么？
 
-D3.js 是一个数据驱动的 JavaScript 库，用于操作 DOM 元素。
+D3.js 是一个数据驱动的用于操作 DOM 的 JavaScript 库。
 
-> " D3 帮助您使用 HTML、SVG 和 CSS 将数据变为现实。D3 对 web 标准的强调为您提供了现代浏览器的全部功能，无需使用专有框架，将强大的可视化组件和数据驱动的 DOM 操作方法相结合。” - [d3js.org](https://d3js.org/)
+> “D3 通过 HTML、SVG 和 CSS 帮你实现数据可视化。D3 强调在标准层面支持现代浏览器的全部特性，而无需束缚于专有的框架，结合自身强大的可视化组件，以数据驱动的方式完成 DOM 操作。” - [d3js.org](https://d3js.org/)
 
-### 为什么首先要用 D3.js 创建图表？为什么不只是显示图像呢？
+**首先考虑为什么要用 D3.js 创建图表？为什么不只显示图片呢？**
 
-嗯，图表是基于来自第三方资源的信息，在渲染时需要动态可视化。此外，SVG 是一个非常强大的工具，非常适合这个应用案例。
+图表是基于第三方资源的信息，在渲染时需要动态可视化。此外，SVG 是一个非常强大的工具，非常适合这个应用场景。
 
-让我们先绕道看看使用 SVG 有什么好处。
+让我们先看看 SVG 有什么好。
 
-## SVG 的好处
+## SVG 的优点
 
 SVG 代表可缩放矢量图形，从技术上讲，这是一种基于 XML 的标记语言。
 
-它通常用于绘制矢量图形、指定线条和形状或修改现有图像。你可以在[这里](https://developer.mozilla.org/en-US/docs/Web/SVG/Element)找到可用元素的列表。
+它通常用于绘制矢量图形，比如线条和形状或修改现有图像。你可以在[这里](https://developer.mozilla.org/en-US/docs/Web/SVG/Element)找到可用元素的列表。
 
 优点:
 
-+ 所有主流浏览器都支持 SVG;
-+ 有 DOM 接口，不需要第三方库;
-+ 大小可变，可以保持高分辨率;
-+ 和其他图像格式相比，体积更小;
++ 支持所有主流浏览器；
++ 有 DOM 接口，不需要第三方库；
++ 可伸缩，可保持高分辨率；
++ 和其他图像格式相比，体积更小。
 
 缺点:
 
-+ 只能显示二维图像;
-+ 学习曲线长，成本大;
-+ 对于计算密集型操作，渲染可能需要很长时间;
++ 只能显示二维图像；
++ 学习曲线长；
++ 对于计算密集型操作，渲染可能需要很长时间。
 
-尽管 SVG 有其缺点，但它是显示图标、徽标、插图以及本文这种情况的图表的伟大工具。
+SVG 尽管有缺点，但它仍是显示图标，logo，插图或者此文提及的图表的优良工具。
 
 ## 开始使用 D3.js
 

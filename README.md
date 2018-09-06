@@ -40,9 +40,11 @@
 
 - 翻译中
 
-
+https://medium.freecodecamp.org/time-saving-css-techniques-to-create-responsive-images-ebb1e84f90d5
 
 - 待翻译
+
+https://aralroca.com/2018/08/24/first-steps-with-tensorflow-js/
 
 https://auth0.com/blog/developing-real-time-web-applications-with-server-sent-events/
 
