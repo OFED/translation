@@ -252,7 +252,7 @@ svgElement
     .on('mouseenter', function (actual, i) {
         d3.select(this).attr(‘opacity’, 0.5)
     })
-    .on('mouseleave’, function (actual, i) {
+    .on('mouseleave', function (actual, i) {
         d3.select(this).attr(‘opacity’, 1)
     })
 ```
