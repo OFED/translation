@@ -52,9 +52,9 @@ SVG 尽管有缺点，但它仍是显示图标，logo，插图或者此文提及
 
 ## 开始使用 D3.js
 
-我选择了条形图作为开始，因为它代表了一个低复杂度的视觉元素，同时它还能教会 D3.js 本身的基本应用。没有骗你，D3 提供了一套很好的可视化数据的工具。查看它的 [github page](https://github.com/d3/d3/wiki/Gallery) 页面，了解一些非常好的用例！
+我选择以柱状图作为开始，因为它代表了一个低复杂度的视觉元素，同时它还能教会 D3.js 本身的基本应用。没骗你，D3 提供了一套很棒的可视化数据的工具。看看它的 [github page](https://github.com/d3/d3/wiki/Gallery) 页面，欣赏一些非常好的用例！
 
-条形图可以是水平的，也可以是垂直的。我将使用垂直的，也就是柱状图。
+柱状图可以是水平或垂直的，取决于它的方向。我们从垂直的柱状图开始。
 
 在这个图表中，我将根据 Stack overlow 2018年[开发者调查结果](https://insights.stackoverflow.com/survey/2018/#technology-most-loved-dreaded-and-wanted-languages)显示前十名最受欢迎的编程语言。
 
