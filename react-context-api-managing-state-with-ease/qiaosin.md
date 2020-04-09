@@ -415,3 +415,4 @@ ReactDOM.render(
 
 Redux 是一个高级状态管理库，适合在构建大规模 React 应用时使用。另一方面，The Context API 可以用于字节大小级别数据更改的小规模 React 应用中。通过使用 Context API，你不必像 `reducers`、`actions` 等一样编写大量代码，就能完成状态变化的逻辑表现。
 
+
